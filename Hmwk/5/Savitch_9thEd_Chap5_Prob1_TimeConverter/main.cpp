@@ -6,7 +6,7 @@
 
 //System Libraries
 #include <iostream>
-#include <iomanip>
+#include<iomanip>
 using namespace std;
 
 //User Libraries
@@ -44,6 +44,7 @@ int main(int argc, char** argv) {
         
         cout << "Would you like to convert another time (y/n)" << endl;
         cin >> yesNo;
+        
     } while (toupper(yesNo) == 'Y');
     //Exit stage right!
     return 0;
@@ -82,10 +83,12 @@ void conv(int hours, int mins, int& hoursReg, char& ampm) {
         ampm = 'A';
     }
     else {
+        hoursReg = hours;
         ampm = 'A';
     }
 }
 
 void output(int hours, int mins, int hoursReg, char ampm) {
-    cout << hours << ":" << mins << " = " << hoursReg << ":" << mins << " " << ampm << "M" << endl;
+    if (hours!=0) cout << hours << ":" << mins << " = " << hoursReg << ":" << mins << " " << ampm << "M" << endl;
+    if (hours==0) cout << "00" << ":" << mins << " = " << hoursReg << ":" << mins << " " << ampm << "M" << endl;
 }

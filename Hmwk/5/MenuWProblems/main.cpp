@@ -19,6 +19,28 @@ using namespace std;
 //Math/Physics/Conversions/Higher Dimensions - i.e. PI, e, etc...
 
 //Function Prototypes
+//Factorial
+int fctrl(int);//Function to write for this problem
+
+//isPrime
+bool isPrime(int);//Determine if the input number is prime.
+
+//MinMax
+void minmax(int,int,int,int&,int&);//Function to find the min and max
+
+//Collatz
+int collatz(int);//3n+1 sequence
+
+//Collatz Sequence with output
+int collatz2(int);//3n+1 sequence
+
+//Present Value
+float psntVal(float, float, int);
+
+//Average
+void getScre(int&, int&, int&, int&, int&);
+float calcAvg(int, int, int, int, int);
+int fndLwst(int, int, int, int, int);
 
 //Execution Begins Here!
 int main(int argc, char** argv) {
@@ -27,105 +49,220 @@ int main(int argc, char** argv) {
 
     //Initialize or input i.e. set variable values
     cout<<"Menu Program"<<endl;
-    cout<<"Type 1 for Gaddis 9thEd Chap4 Prob10 MathTutor"<<endl;
-    cout<<"Type 2 for Gaddis 9thEd Chap3 Prob19 MonthlyPayment"<<endl;
-    cout<<"Type 3 for Savitch 9thEd Chap2 Prob1 SodaPop"<<endl;
+    cout<<"Type 1 for Factorial"<<endl;
+    cout<<"Type 2 for isPrime"<<endl;
+    cout<<"Type 3 for MinMax"<<endl;
+    cout<<"Type 4 for Collatz Sequence"<<endl;
+    cout<<"Type 5 for Collatz Sequence w/Output"<<endl;
+    cout<<"Type 6 for Gaddis 9thEd Chap6 Prob9 Present Value"<<endl;
+    cout<<"Type 7 for Gaddis 9thEd Chap6 Prob10 Average"<<endl;
     cin>>wchProb;
     
     //Solve Problems
     switch(wchProb){
-        case '1':{
-                    //Set the random number seed
-                    srand(static_cast<unsigned int>(time(0)));
+        case '1':
+        {
+            //Declare Variables
+            int num;
+            
+            //Process/Map inputs to outputs
+            cout << "This program calculates the factorial using a function prototype found in the template for this problem." << endl;
+            cout << "Input the number for the function." << endl;
+            cin >> num;
 
-                    //Declare all Variables Here
-                    unsigned short op1,op2,answer,test;
-
-                    //Input or initialize values Here
-                    op1=rand()%900+100;//3 digit number   [100-999]
-                    op2=rand()%999+1;  //1-3 digit number [1-999]
-
-                    //Process/Calculations Here
-                    answer=op1+op2;
-
-                    //Output Located Here
-                    cout<<setw(6)<<op1<<endl;
-                    cout<<"+"<<setw(5)<<op2<<endl;
-                    cout<<"------"<<endl;
-                    cout<<(answer<1000?"   ":"  ");
-                    cin>>test;
-                    cout<<endl<<(answer==test?"Correct Answer":"Incorect Answer")<<endl;
-
+            //Output data
+            cout << num << "! = " << fctrl(num);
                     break;
-               }
-        case '2':{
-                    //Declare Variables
-                    float monPymt,//Monthly Payment in $'s
-                          intRate,//Interest Rate per year
-                          loanAmt,//Loan amount in $'s
-                          totPaid,//Total amount paid in $'s
-                          intPaid;//Interest paid
-                    int   nMnths;//Number of months
+        }
+        case '2':
+        {
+            //Declare Variables
+            int num;
 
-                    //Initialize or input i.e. set variable values
-                    cout<<"Loan calculator program"<<endl;
-                    cout<<"Input Loan Amount in $'s,"<<endl<<
-                          "Interest Rate in %/yr, "<<endl<<
-                          "and the number of Months to pay"<<endl;
-                    cin>>loanAmt>>intRate>>nMnths;
+            //Process/Map inputs to outputs
+            cout << "Input a number to test if Prime." << endl;
+            cin >> num;
 
-                    //Map inputs -> outputs
-                    intRate/=CNVYRMN;//Convert to %/month
-                    intRate/=PERCENT;//Convert to decimal value per month
-                    float temp=pow(1+intRate,nMnths);//Utility Variable
-                    monPymt=intRate*temp*loanAmt/(temp-1);//Monthly payment
-                    int iPymt=(monPymt+HALFPNY)*PENNIES;//Convert Payment to Pennies
-                    monPymt=iPymt/PENNIES;//Converting back to Dollars
-                    totPaid=monPymt*nMnths;//Total amount paid back
-                    intPaid=totPaid-loanAmt;//Interest paid
+            //Output data
+            if (isPrime(num)) {
+                cout << num << " is prime.";
+            } else {
+                cout << num << " is not prime.";
+            }
+            break;
+        }
+        case '3':
+        {
+            //Declare Variables
+            int num1, num2, num3, min, max;
 
-                    //Display the outputs
-                    cout<<fixed<<setprecision(2)<<showpoint;
-                    cout<<"Loan Amount      = $"<<setw(10)<<loanAmt<<endl;
-                    cout<<"Interest Rate    =  "<<setw(10)<<intRate*PERCENT<<"%/month"<<endl;
-                    cout<<"Number of months =  "<<setw(7)<<nMnths<<endl;
-                    cout<<"Monthly Payment  = $"<<setw(10)<<monPymt<<endl;
-                    cout<<"Total Payment    = $"<<setw(10)<<totPaid<<endl;
-                    cout<<"Interest Paid    = $"<<setw(10)<<intPaid<<endl;
+            //Initialize Variables
+            cout << "Input 3 numbers" << endl;
+            cin >> num1 >> num2 >> num3;
 
-                    break;
-               }
-        case '3':{
-                    //Declare Variables
-                    float   wD,//Weight in lbs of the dieter
-                            ms,//Mass of sweetener that killed mouse in grams
-                            mm,//Mass of mouse in grams
-                            msp,//Mass of soda pop in grams
-                            csp;//Soda pop concentration
-                    int nCans;//Number of cans 
+            //Process/Map inputs to outputs
+            minmax(num1, num2, num3, min, max);
+            
+            //Output data
+            cout << "Min = " << min << endl;
+            cout << "Max = " << max;
+            break;
+        }
+        case '4': 
+        {
+            //Declare Variables
+            int n;
 
-                    //Initialize or input i.e. set variable values
-                    ms=5;     //5 grams that kill the mouse
-                    mm=35;    //35 grams mass of mouse
-                    msp=350;  //350 grams in a soda pop can
-                    csp=.001f;//1/10 of 1%
-                    cout<<"Program to calculate limit of Soda Pop Consumption"<<endl;
-                    cout<<"Input the desired dieters weight in lbs"<<endl;
-                    cin>>wD;
+            //Initialize Variables
+            cout << "Collatz Conjecture Test" << endl;
+            cout << "Input a sequence start" << endl;
+            cin>>n;
 
-                    //Map inputs -> outputs
-                    //nCans=wD*CNVLBGR*ms/mm/msp/csp;
-                    nCans=wD*CNVLBGR*ms/(mm*msp*csp);
+            //Process/Map inputs to outputs
+            cout << "Sequence start of " << n << " cycles to 1 in " <<
+                    collatz(n) << " steps";
+            break;
+        }
+        case '5':
+        {
+            //Declare Variables
+            int n, ns;
 
-                    //Display the outputs
-                    cout<<"The maximum number of soda pop cans"<<endl;
-                    cout<<"which can be consumed are = "<<nCans<<endl;
+            //Initialize Variables
+            cout << "Collatz Conjecture Test" << endl;
+            cout << "Input a sequence start" << endl;
+            cin>>n;
 
-                    break;
-               }
+            //Process/Map inputs to outputs
+            ns = collatz2(n);
+
+            //Output data
+            cout << "Sequence start of " << n << " cycles to 1 in " <<
+                    ns << " steps";
+            break;
+        }
+        case '6':
+        {
+            //Declare Variables
+            float ftrVal, intRate, yrs;
+
+            //Initialize and ask for values
+            cout << "This is a Present Value Computation" << endl;
+            cout << "Input the Future Value in Dollars" << endl;
+            cin >> ftrVal;
+            cout << "Input the Number of Years" << endl;
+            cin >> yrs;
+            cout << "Input the Interest Rate %/yr" << endl;
+            cin >> intRate;
+
+            //Calculate and Output
+            cout << "The Present Value = $" << fixed << setprecision(2) << psntVal(ftrVal, intRate, yrs) + 0.01;
+            break;
+        }
+        case '7':
+        {
+            //Declare Variables
+            int num1, num2, num3, num4, num5;
+
+            //Initialize and ask for values
+            cout << "Find the Average of Test Scores" << endl;
+            cout << "by removing the lowest value." << endl;
+            getScre(num1, num2, num3, num4, num5);
+
+            //Calculate and Output
+            cout << "The average test score = " << fixed << setprecision(1) << calcAvg(num1, num2, num3, num4, num5);
+            break;
+        }
         default:    cout<<"Exiting Menu, no problem selected"<<endl;
     }
 
     //Exit stage right or left!
     return 0;
+}
+
+int fctrl(int n) {
+    int result = 1;
+    
+    for (int i = 1; i <= n; i++ ) {
+        result *= i;
+    }
+    
+    return result;
+}
+bool isPrime(int n) {
+    //Check if number is divisible by 2 to the inputted number
+    //If we get a result with no remainder then the number is not prime.
+    for(int i = 2; i <= n / 2; i++)
+    {
+      if(n % i == 0)
+      {
+          return false;
+      }
+    }
+    
+    //If we got here we went through the loop and found it is only divisble by 1 and itself.
+    return true;
+}
+void minmax(int n1, int n2, int n3, int& min, int& max) {
+    if (n1 >= n2 && n1 >= n3) max = n1;
+    if (n2 >= n1 && n2 >= n3) max = n2;
+    if (n3 >= n1 && n3 >= n2) max = n3;
+    if (n1 <= n2 && n1 <= n3) min = n1;
+    if (n2 <= n1 && n2 <= n3) min = n2;
+    if (n3 <= n1 && n3 <= n2) min = n3;
+}
+int collatz(int n) {
+    int steps = 1;
+    
+    do {
+        if (n % 2 == 0) {
+            n /= 2;
+        }
+        else {
+            n *= 3;
+            n += 1;
+        }
+        steps++;
+    } while (n != 1);
+    
+    return steps;
+}
+int collatz2(int n) {
+    int steps = 1;
+    
+    while (n > 1) {
+        if (steps != 1) cout << " " << n << ",";
+        else cout  << n << ",";
+        steps++;
+        if (n % 2 == 0) {
+            n /= 2;
+        }
+        else {
+            n *= 3;
+            n += 1;
+        }
+    }
+    
+    cout << " " << n << endl;
+    return steps;
+}
+float psntVal(float F, float r, int n) {
+    //Convert interest rate to decimal
+    r /= 100;
+    
+    return (F/(pow((1.0+r), n)));
+}
+void getScre(int& n1, int& n2, int& n3, int& n4, int& n5) {
+    cout << "Input the 5 test scores." << endl;
+    cin >> n1 >> n2 >> n3 >> n4 >> n5;
+}
+float calcAvg(int n1, int n2, int n3, int n4, int n5) {
+    return (n1 + n2 + n3 + n4 + n5 - fndLwst(n1,n2,n3,n4,n5))/4.0;
+}
+int fndLwst(int n1, int n2, int n3, int n4, int n5) {
+    if (n1 < n2 && n1 < n3 && n1 < n4 && n1 < n5) return n1;
+    if (n2 < n1 && n2 < n3 && n2 < n4 && n2 < n5) return n2;
+    if (n3 < n1 && n3 < n2 && n3 < n4 && n3 < n5) return n3;
+    if (n4 < n1 && n4 < n2 && n4 < n3 && n4 < n5) return n4;
+    if (n5 < n1 && n5 < n2 && n5 < n3 && n5 < n4) return n5;
 }

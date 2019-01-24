@@ -21,8 +21,7 @@ float psntVal(float, float, int);
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare Variables
-    float ftrVal, intRate;
-    int yrs;
+    float ftrVal, intRate, yrs;
     
     //Initialize and ask for values
     cout << "This is a Present Value Computation" << endl;
@@ -34,7 +33,7 @@ int main(int argc, char** argv) {
     cin >> intRate;
     
     //Calculate and Output
-    cout << "The Present Value = $" << psntVal(ftrVal, intRate, yrs) << endl;
+    cout << "The Present Value = $" << fixed << setprecision(2) << psntVal(ftrVal, intRate, yrs) + 0.01;
     
 
     //Exit stage right!

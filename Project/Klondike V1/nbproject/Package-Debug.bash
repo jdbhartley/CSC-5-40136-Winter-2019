@@ -13,9 +13,9 @@ CND_BUILDDIR=build
 CND_DLIB_EXT=dll
 NBTMPDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/klondike_v1
-OUTPUT_BASENAME=klondike_v1
-PACKAGE_TOP_DIR=klondikev1/
+OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8
+OUTPUT_BASENAME=klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8
+PACKAGE_TOP_DIR=klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8/
 
 # Functions
 function checkReturnCode
@@ -60,15 +60,15 @@ mkdir -p ${NBTMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory "${NBTMPDIR}/klondikev1/bin"
+makeDirectory "${NBTMPDIR}/klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8/bin"
 copyFileToTmpDir "${OUTPUT_PATH}.exe" "${NBTMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}.exe" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/klondikev1.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8.tar
 cd ${NBTMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/klondikev1.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/package/klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8.tar *
 checkReturnCode
 
 # Cleanup

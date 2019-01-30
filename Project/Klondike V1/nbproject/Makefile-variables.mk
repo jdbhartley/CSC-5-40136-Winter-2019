@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=klondike_v1
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/klondike_v1
+CND_ARTIFACT_NAME_Debug=klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=klondikev1.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/klondikev1.tar
+CND_PACKAGE_NAME_Debug=klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=klondike_v1
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/klondike_v1
+CND_ARTIFACT_NAME_Release=klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=klondikev1.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/klondikev1.tar
+CND_PACKAGE_NAME_Release=klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/klondike-1a49655479e17ca50e74b43b0f6b30c0aa14eaf8.tar
 #
 # include compiler specific variables
 #
